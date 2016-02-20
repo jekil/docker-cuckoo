@@ -1,0 +1,13 @@
+cffi
+mitmproxy
+psycopg2
+vmcloak
+pycrypto
+distorm3
+ipython
+ujson
+openpyxl
+libvirt-python
+MySQL-python
+scapy
+pyvmomi
