@@ -1,0 +1,35 @@
+cuckoo-pg:
+  image: postgres:9.5
+  container_name: cuckoo-pg
+  net: "host"
+  environment:
+    - POSTGRES_DB=cuckoo
+    - POSTGRES_USER=cuckoo
+    - POSTGRES_PASSWORD=machetekillsmalware
+  ports:
+    - "5432:5432"
+  #expose:
+  #  - "5432"
+cuckoo-mongo:
+  image: mongo:3.2
+  container_name: cuckoo-mongo
+  net: "host"
+  ports:
+    - "27017:27017"
+#  expose:
+#    - "27017"
+cuckoo:
+  # Set build to "." to build the project in the local directory.
+  build: .
+  ports:
+    - "8000:8000"
+  net: "host"
+  #expose:
+  #  - "8000"
+  #links:
+  #  - cuckoo-mongo
+  #  - cuckoo-pg
+#  command: "bash"
+#  command: "/usr/bin/python manage.py runserver 0.0.0.0:8000"
+  cap_add:
+    - NET_ADMIN
