@@ -76,7 +76,7 @@ RUN cd /home/cuckoo && \
 RUN cd /home/cuckoo/cuckoo && \
     pip install --upgrade -r requirements.txt && \
     rm -rf data/monitor/latest && \
-    ./utils/community.py -wafb 2.0
+    ./utils/community.py -waf
 RUN rm /home/cuckoo/cuckoo/conf/cuckoo.conf && rm /home/cuckoo/cuckoo/conf/reporting.conf
 COPY conf/supervisord.conf /etc/supervisor/conf.d/cuckoo.conf
 COPY conf/cuckoo/*.conf /home/cuckoo/cuckoo/conf/
